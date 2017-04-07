@@ -16,17 +16,17 @@ Function to test if a number is prime:
 ```javascript
 function isPrime(x) {
 	if (! Number.isInteger(x)) {
-	  return false;
+	  	return false;
 	}
 	    
 	if (x < 2) {
-	  return false;
+	  	return false;
 	}
 	    
 	for (let i = 2; i <= Math.sqrt(x); i++) {
-	  if (x % i === 0) {
-	    return false;
-	  }
+	  	if (x % i === 0) {
+	    	return false;
+	  	}
 	}
 	    
 	return true;
