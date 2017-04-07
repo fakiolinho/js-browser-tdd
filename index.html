@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Browser TDD</title>
+  <link rel="stylesheet" href="node_modules/mocha/mocha.css">
+</head>
+<body>
+
+<div id="mocha"></div>
+
+<script src="node_modules/mocha/mocha.js"></script>
+<script src="node_modules/chai/chai.js"></script>
+<script>
+  mocha.setup('tdd');
+  
+  const expect = chai.expect;
+  
+  function isPrime(x) {
+    if (! Number.isInteger(x)) {
+      return false;
+    }
+    
+    if (x < 2) {
+      return false;
+    }
+    
+    for (let i = 2; i <= Math.sqrt(x); i++) {
+      if (x % i === 0) {
+        return false;
+      }
+    }
+    
+    return true;
+  }
+  
+  test('it should return false for non-integer', () => {
+    expect(isPrime('a')).to.be.false;
+  });
+  
+  test('it should return false for 0 & 1', () => {
+    expect(isPrime(0)).to.be.false;
+  expect(isPrime(1)).to.be.false;
+  });
+  
+  test('it should return true for 2', () => {
+    expect(isPrime(2)).to.be.true;
+  });
+  
+  test('it should return true for 3', () => {
+    expect(isPrime(3)).to.be.true;
+  });
+  
+  test('it should return false for 4', () => {
+    expect(isPrime(4)).to.be.false;
+  });
+  
+  test('it should return true for 5', () => {
+    expect(isPrime(5)).to.be.true;
+  });
+  
+  test('it should return false for 6', () => {
+    expect(isPrime(6)).to.be.false;
+  });
+  
+  test('it should return true for 7', () => {
+    expect(isPrime(7)).to.be.true;
+  });
+  
+  test('it should return false for 20', () => {
+    expect(isPrime(20)).to.be.false;
+  });
+  
+  mocha.run();
+</script>
+</body>
+</html>
